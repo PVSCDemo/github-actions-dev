@@ -132,6 +132,8 @@ Create a new card
     apiToken: ${{ secrets.MY_API_TOKEN }}
     boardId: 42304923
     title: My Card Title
+    customId: ${{github.event.repository.name}} #${{github.event.issue.number}}
+    externalLink: ${{github.event.issue.url}}
 ```
 #### Outputs
 * error; error message if failed
