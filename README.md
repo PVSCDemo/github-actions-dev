@@ -1,7 +1,7 @@
 # LeanKit Github Actions
 These Github Actions provide an easy way to interact with your LeanKit account during your build or deployment lifecycle. For more information on using Github Actions in general, see https://docs.github.com/en/actions.
 
-To consume, reference this repository, and the action. All available LeanKit Actions are in this repository only. For example: `use: leankit/github-actions/blockCard@v1.1`. See specific examples with input parameters below.
+To consume, reference this repository, and the action. All available LeanKit Actions are in this repository only. For example: `use: leankit/github-actions-dev/blockCard@v1.1`. See specific examples with input parameters below.
 
 ## Usage Notes
 
@@ -72,7 +72,7 @@ Add a comment to a card
 #### Example workflow step
 ```
 - name: add comment to card
-  uses: leankit/github-actions/addComment@v1.1
+  uses: leankit/github-actions-dev/addComment@v1.1
   with:
     host: https://YOUR-ACCOUNT.leankit.com/
     apiToken: ${{ secrets.MY_API_TOKEN }}
@@ -97,7 +97,7 @@ Block or unblock a card
 #### Example workflow step
 ```
 - name: block card
-  uses: leankit/github-actions/blockCard@v1.1
+  uses: leankit/github-actions-dev/blockCard@v1.1
   with:
     host: https://YOUR-ACCOUNT.leankit.com/
     apiToken: ${{ secrets.MY_API_TOKEN }}
@@ -124,7 +124,7 @@ Create a new card
 #### Example workflow step
 ```
 - name: create card
-  uses: leankit/github-actions/createCard@v1.1
+  uses: leankit/github-actions-dev/createCard@v1.1
   with:
     host: https://YOUR-ACCOUNT.leankit.com/
     apiToken: ${{ secrets.MY_API_TOKEN }}
@@ -147,7 +147,7 @@ Create a new card
 #### Example workflow step
 ```
 - name: move card
-  uses: leankit/github-actions/moveCard@v1.1
+  uses: leankit/github-actions-dev/moveCard@v1.1
   with:
     host: https://YOUR-ACCOUNT.leankit.com/
     apiToken: ${{ secrets.MY_API_TOKEN }}
@@ -173,7 +173,7 @@ Although they are not technically required, you must specify either `assignUserI
 #### Example workflow step
 ```
 - name: assign users to cards
-  uses: leankit/github-actions/assignUsers@v1.1
+  uses: leankit/github-actions-dev/assignUsers@v1.1
   with:
     host: https://YOUR-ACCOUNT.leankit.com/
     apiToken: ${{ secrets.MY_API_TOKEN }}
@@ -198,7 +198,7 @@ Note: the `customFields` input is available to receive custom field information 
 #### Example workflow step
 ```
 - name: validate required fields
-  uses: leankit/github-actions/validateCustomFields@v1.1
+  uses: leankit/github-actions-dev/validateCustomFields@v1.1
   with:
     host: https://YOUR-ACCOUNT.leankit.com/
     apiToken: ${{ secrets.MY_API_TOKEN }}
@@ -213,6 +213,7 @@ Note: the `customFields` input is available to receive custom field information 
 
 ## Dev notes
 ### Running Build on Windows
+
 As a suggestion, use VS Code as the main tool. It seems to do it right. Two things you should set:
 #### The default terminal for VS Code
 Change the default terminal to a locally installed bash, e.g. Git Bash (available after you install Git for Windows)
@@ -221,6 +222,7 @@ Npm has its own way of doing things, so you want to use:
 ```
 npm config set script-shell "C:\\Program Files\\git\\bin\\bash.exe"
 ```
+Don't forget to run `npm install`
 
 ### Integration tests
 We can use "act" to test actions locally before deploying. See https://github.com/nektos/act for installation instructions.
