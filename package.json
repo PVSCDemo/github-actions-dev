@@ -1,5 +1,5 @@
 {
-  "name": "github-actions-dev",
+  "name": "github-actions",
   "version": "0.2",
   "description": "",
   "main": "index.js",
@@ -18,14 +18,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PVSCDemo/github-actions-dev.git"
+    "url": "git+https://github.com/PVSCDemo/github-actions.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/PVSCDemo/github-actions-dev/issues"
+    "url": "https://github.com/PVSCDemo/github-actions/issues"
   },
-  "homepage": "https://github.com/PVSCDemo/github-actions-dev#readme",
+  "homepage": "https://github.com/PVSCDemo/github-actions#readme",
   "dependencies": {
     "@actions/core": "^1.2.4",
     "@actions/github": "^4.0.0",

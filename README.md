@@ -1,7 +1,7 @@
 # LeanKit Github Actions
 These Github Actions provide an easy way to interact with your LeanKit account during your build or deployment lifecycle. For more information on using Github Actions in general, see https://docs.github.com/en/actions.
 
-To consume, reference this repository, and the action. All available LeanKit Actions are in this repository only. For example: `use: leankit/github-actions-dev/blockCard@v1.1`. See specific examples with input parameters below.
+To consume, reference this repository, and the action. All available LeanKit Actions are in this repository only. For example: `use: leankit/github-actions/blockCard@v1.1`. See specific examples with input parameters below.
 
 ## Usage Notes
 
@@ -72,7 +72,7 @@ Add a comment to a card
 #### Example workflow step
 ```
 - name: add comment to card
-  uses: leankit/github-actions-dev/addComment@v1.1
+  uses: leankit/github-actions/addComment@v1.1
   with:
     host: https://YOUR-ACCOUNT.leankit.com/
     apiToken: ${{ secrets.MY_API_TOKEN }}
@@ -97,7 +97,7 @@ Block or unblock a card
 #### Example workflow step
 ```
 - name: block card
-  uses: leankit/github-actions-dev/blockCard@v1.1
+  uses: leankit/github-actions/blockCard@v1.1
   with:
     host: https://YOUR-ACCOUNT.leankit.com/
     apiToken: ${{ secrets.MY_API_TOKEN }}
@@ -118,6 +118,8 @@ Create a new card
 |apiToken|API token with write access to your LeanKit board|yes|
 |boardId|Board Id for the new card|yes|
 |title|Title of the new card|yes|
+|customId|Optionally specify a card header||
+|externalLink|Optionally specify an external link (e.g. to issue, branch, etc.)||
 |laneId|Optionally specify lane id for the new card. Default drop lane will be used when not set.||
 |typeId|Optionally specify a card type id to use. Default card type will be used when not set.||
 |customId|Optionally specify a card type id to use. Default card type will be used when not set.||
@@ -127,12 +129,14 @@ Create a new card
 #### Example workflow step
 ```
 - name: create card
-  uses: leankit/github-actions-dev/createCard@v1.1
+  uses: leankit/github-actions/createCard@v1.1
   with:
     host: https://YOUR-ACCOUNT.leankit.com/
     apiToken: ${{ secrets.MY_API_TOKEN }}
     boardId: 42304923
     title: My Card Title
+    customId: ${{github.event.repository.name}} #${{github.event.issue.number}}
+    externalLink: ${{github.event.issue.url}}
 ```
 #### Outputs
 * error; error message if failed
@@ -150,7 +154,7 @@ Create a new card
 #### Example workflow step
 ```
 - name: move card
-  uses: leankit/github-actions-dev/moveCard@v1.1
+  uses: leankit/github-actions/moveCard@v1.1
   with:
     host: https://YOUR-ACCOUNT.leankit.com/
     apiToken: ${{ secrets.MY_API_TOKEN }}
@@ -176,7 +180,7 @@ Although they are not technically required, you must specify either `assignUserI
 #### Example workflow step
 ```
 - name: assign users to cards
-  uses: leankit/github-actions-dev/assignUsers@v1.1
+  uses: leankit/github-actions/assignUsers@v1.1
   with:
     host: https://YOUR-ACCOUNT.leankit.com/
     apiToken: ${{ secrets.MY_API_TOKEN }}
@@ -201,7 +205,7 @@ Note: the `customFields` input is available to receive custom field information 
 #### Example workflow step
 ```
 - name: validate required fields
-  uses: leankit/github-actions-dev/validateCustomFields@v1.1
+  uses: leankit/github-actions/validateCustomFields@v1.1
   with:
     host: https://YOUR-ACCOUNT.leankit.com/
     apiToken: ${{ secrets.MY_API_TOKEN }}
