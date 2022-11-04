@@ -120,6 +120,9 @@ Create a new card
 |title|Title of the new card|yes|
 |laneId|Optionally specify lane id for the new card. Default drop lane will be used when not set.||
 |typeId|Optionally specify a card type id to use. Default card type will be used when not set.||
+|customId|Optionally specify a card type id to use. Default card type will be used when not set.||
+|externalLink|Optionally specify a card type id to use. Default card type will be used when not set.||
+|linkLabel|Optionally specify a label for the link. Defaults to ```Link to GitHub```||
 
 #### Example workflow step
 ```
